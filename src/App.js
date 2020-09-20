@@ -10,6 +10,7 @@ function Todo({ todo, index, completeTodo }) {
       {todo.text}
       <div>
         <button 
+          disabled={ todo.isCompleted === true ? true : false }
           onClick={() => completeTodo(index)}
         >
             Complete
