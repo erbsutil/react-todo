@@ -1,10 +1,12 @@
 .app {
   align-items: center;
   background: #209cee;
+  color: #fff;
   display: flex;
+  flex-direction: column;
+  font-size: 14px;
   height: 100vh;
   justify-content: center;
-  font-size: 14px;
 }
 
 .todo-list {
@@ -24,6 +26,7 @@
   justify-content: space-between;
   margin-bottom: 6px;
   padding: 3px 10px;
+  color: #414b52;
 }
 
 button {
@@ -66,4 +69,9 @@ input::placeholder {
 
 input:focus {
   outline: 0;
+}
+
+svg.doneAllIcon {
+  font-size: 40px;
+  vertical-align: bottom;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
+import DoneAllIcon from '@material-ui/icons/DoneAll';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
@@ -13,6 +14,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
       <div>
         <button 
           disabled={ todo.isCompleted === true ? true : false }
+          style={{ color: todo.isCompleted ? "silver" : "" }}
           onClick={() => completeTodo(index)}
         >
           <DoneRoundedIcon />
@@ -58,7 +60,7 @@ function App() {
     { 
       text: "Meet friends for lunch",
       isCompleted: true
-    }
+    },
   ]);
 
   const addTodo = text => {
@@ -80,6 +82,7 @@ function App() {
 
   return (
     <div className="app">
+      <h1>React To Do <DoneAllIcon className="doneAllIcon"/></h1>
       <div className="todo-list">
         <TodoForm addTodo={addTodo} />
         {todos.map((todo, index) => (
