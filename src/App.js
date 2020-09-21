@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import DoneRoundedIcon from '@material-ui/icons/DoneRounded';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
@@ -13,10 +15,11 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
           disabled={ todo.isCompleted === true ? true : false }
           onClick={() => completeTodo(index)}
         >
-          Complete
+          <DoneRoundedIcon />
         </button>
+        
         <button onClick={() => removeTodo(index)}> 
-          X 
+          <DeleteRoundedIcon />
         </button>
       </div>
     </div>
@@ -40,6 +43,7 @@ function TodoForm({ addTodo }) {
         className="input"
         value={value}
         onChange={e => setValue(e.target.value)}
+        placeholder="Add a new item"
       />
     </form>
   );
@@ -77,6 +81,7 @@ function App() {
   return (
     <div className="app">
       <div className="todo-list">
+        <TodoForm addTodo={addTodo} />
         {todos.map((todo, index) => (
           <Todo
             key={index}
@@ -86,7 +91,6 @@ function App() {
             removeTodo={removeTodo}
           />
         ))}
-        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
